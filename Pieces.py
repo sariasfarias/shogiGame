@@ -7,12 +7,20 @@ class Piece(object):
 		self.promoted = promoted
 		self.can_promote = cp
 
+	def invalidmove():
+		print("\n" * 13)
+		print("                 Invalid Move / Drop! ", end=' ')
+		print("\n" * 9)
+
 class King(Piece):
 
 	def __init__(self, player, x, y, promoted=False):
 		super(King, self).__init__(player, x, y, promoted, False)
 		self.name = "King"
 		self.id = "K"
+		self.dx=1
+		self.dy=1
+		
 
 class Gold_General(Piece):
 
@@ -20,6 +28,9 @@ class Gold_General(Piece):
 		super(Gold_General, self).__init__(player, x, y, promoted, False)
 		self.name = "Gold General"
 		self.id = "G"
+		self.dx=1
+		self.dy=1
+
 
 class Silver_General(Piece):
 
@@ -85,4 +96,7 @@ class Pawn(Piece):
 			self.id = "+P"
 		else:
 			self.name = "Pawn"
-			self.id = "P"                  
+			self.id = "P"   
+
+	
+
