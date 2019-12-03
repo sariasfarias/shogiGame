@@ -6,5 +6,12 @@ class Player():
         self.piece="peon"
 
     def turn(self):
+        print("* * *  PLAYER ",self.player,"  * * *")
         self.piece = input("          Choose your piece: ")
         self.move_to = input("          Now  Move: To ")
+
+    def ingres_piece(self):
+        print("* * *  INTRODUCE A PIECE ",self.player,"  * * *")
+        self.piece = input("          Choose your piece: ")
+        self.move_to = input("          Now  Move: To ")
+        

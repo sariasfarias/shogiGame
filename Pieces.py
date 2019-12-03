@@ -6,11 +6,7 @@ class Piece(object):
 		self.player = player
 		self.promoted = promoted
 		self.can_promote = cp
-
-	def invalidmove():
-		print("\n" * 13)
-		print("                 Invalid Move / Drop! ", end=' ')
-		print("\n" * 9)
+		self.nro_promote=0
 
 class King(Piece):
 
@@ -47,56 +43,40 @@ class Rook(Piece):
 
 	def __init__(self, player, x, y, promoted=False):
 		super(Rook, self).__init__(player, x, y, promoted)
-		if promoted is True:
-			self.name = "Promoted Rook"
-			self.id = "+R"
-		else:
-			self.name = "Rook"
-			self.id = "R"
-
+		self.name = "Rook"
+		self.id = "R"
+#alfil
 class Bishop(Piece):
 
 	def __init__(self, player, x, y, promoted=False):
 		super(Bishop, self).__init__(player, x, y, promoted)
-		if promoted is True:
-			self.name = "Promoted Bishop"
-			self.id = "+B"
-		else:
-			self.name = "Bishop"
-			self.id = "B"
-
+		self.name = "Bishop"
+		self.id = "B"
+			
+#caballero
 class Knight(Piece):
 
 	def __init__(self, player, x, y, promoted=False):
 		super(Knight, self).__init__(player, x, y, promoted)
-		if promoted is True:
-			self.name = "Promoted Knight"
-			self.id = "+N"
-		else:
-			self.name = "Knight"
-			self.id= "N"
+		self.name = "Knight"
+		self.id= "N"
+			
 
 class Lance(Piece):
 
 	def __init__(self, player, x, y, promoted=False):
 		super(Lance, self).__init__(player, x, y, promoted)
-		if promoted is True:
-			self.name = "Promoted Lance"
-			self.id = "+L"
-		else:
-			self.name = "Lance"
-			self.id = "L"
+		self.name = "Lance"
+		self.id = "L"
+			
 
 class Pawn(Piece):
 
 	def __init__(self, player, x, y, promoted=False):
 		super(Pawn, self).__init__(player, x, y, promoted)
-		if promoted is True:
-			self.name = "Promoted Pawn"
-			self.id = "+P"
-		else:
-			self.name = "Pawn"
-			self.id = "P"   
+		self.name = "Pawn"
+		self.id = "P" 
+			  
 
 	
 
