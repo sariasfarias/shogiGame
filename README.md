@@ -1,6 +1,8 @@
 # shogiGame
 # INSTRUCCIONES
 
+Ejecutar main.py en la terminal
+
 Escibir las direcciones de las piezas en minúsula. ej: Peón -> p
 Las piezas re insertadas se llaman con el numero adelate del nombre
 Cuando un valor sea erróneo la maquina le pedirá reingresar los datos
