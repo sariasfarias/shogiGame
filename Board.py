@@ -152,46 +152,34 @@ class Board(object):
 	def drope(self, player,  a , b , first):
 		print("voy a dropear")
 		if player==1:
-			print("jug 1")
-			print(self.board[a][b])
 			if self.board[a][b] != None:
 				if first:#pieza recien ingresada
 					if self.board[a][b].player==1:
 						self.invaliddrope()
 						self.valid=False
-						print(1)
 					elif self.board[a][b].player==2:
 						if self.boardPrint[a][b].__contains__("R"):
-							print(2)
 							self.invaliddrope()
 							self.valid= False
 						elif self.boardPrint[a][b].__contains__("B"):
 							self.invaliddrope()
 							self.valid= False
-							print(3)
 						elif self.boardPrint[a][b].__contains__("G"):
 							self.invaliddrope()
 							self.valid= False
-							print(4)
 						elif self.boardPrint[a][b].__contains__("S"):
 							self.invaliddrope()
 							self.valid= False
-							print(5)
 						elif self.boardPrint[a][b].__contains__("N"):
 							self.invaliddrope()
 							self.valid= False
-							print(6)
 						elif self.boardPrint[a][b].__contains__("L"):
 							self.invaliddrope()
 							self.valid= False
-							print(7)
 						elif self.boardPrint[a][b].__contains__("P"):
 							self.invaliddrope()
 							self.valid= False
-							print(8)
 					else:
-						print(9)
-						print("valid position")
 						self.valid=True
 				else: 	
 					if self.board[a][b].player==1:
@@ -213,7 +201,6 @@ class Board(object):
 						elif self.boardPrint[a][b].__contains__("P"):
 							self.p1Piece[6]=+1
 			else:
-				print("valid position")
 				self.valid=True		
 		if player==2:
 			if self.board[a][b] != None:
@@ -244,7 +231,6 @@ class Board(object):
 							self.invaliddrope()
 							self.valid= False
 					else:
-						print("valid position")
 						self.valid=True	
 				else:
 					if self.board[a][b].player==2  :
@@ -266,7 +252,6 @@ class Board(object):
 						elif self.boardPrint[a][b].__contains__("P"):
 							self.p2Piece[6]=+1
 			else:
-				print("valid position")
 				self.valid=True				
 				
 	def move(self, player,piece, a, b):		
@@ -328,8 +313,6 @@ class Board(object):
 				self.invalidmove()
 				self.valid= False
 			elif (abs(a-p[aux].x))>1 or (abs(b-p[aux].y))>1:
-				print(a," ", p[aux].x," ",abs(a-p[aux].x))
-				print(b," ", p[aux].y," ",abs(b-p[aux].y))
 				self.out_of_range()
 				self.valid= False
 
@@ -837,13 +820,11 @@ class Board(object):
 	def check(self, player, a, b):
 		if player==1:
 			if self.boardPrint[a][b]!= ". ":
-				print(self.boardPrint[a][b])
 				if self.boardPrint[a][b]=="K" :
 					print (Fore.RED+"          Player 1 has placed Player 2's King in Check! "+Fore.RESET)
 					return True
 		else:
 			if self.boardPrint[a][b]!= ". ":
-				print(self.boardPrint[a][b])
 				if self.boardPrint[a][b]=="K":
 					print(Fore.RED+"          Player 2 has placed Player 1's King in Check!"+Fore.RESET)
 					return True
@@ -875,8 +856,6 @@ class Board(object):
 					self.invalidmove()
 					self.valid= False
 				elif (abs(a-p[aux].x))>1 or (abs(b-p[aux].y))>1:
-					print(a," ", p[aux].x," ",abs(a-p[aux].x))
-					print(b," ", p[aux].y," ",abs(b-p[aux].y))
 					self.out_of_range()
 					self.valid= False
 				
@@ -933,43 +912,36 @@ class Board(object):
 				p=[Rook(player, i, j)]
 				#id
 				cant = p[aux].id.count("R")
-				print(cant)
 			elif piece.__contains__("b"):
 				self.p1Piece[1]=self.p1Piece[1]-1
 				p=[Bishop(player, i, j)]
 				#id
 				cant = p[aux].id.count("B")
-				print(cant)
 			elif piece.__contains__("g"):
 				self.p1Piece[2]=self.p1Piece[2]-1
 				p=[Gold_General(player, i, j)]
 				#id
 				cant = p[aux].id.count("G")
-				print(cant)
 			elif piece.__contains__("s"):
 				self.p1Piece[3]=self.p1Piece[3]-1
 				p=[Silver_General(player, i, j)]
 				#id
 				cant = p[aux].id.count("S")
-				print(cant)
 			elif piece.__contains__("n"):
 				self.p1Piece[4]=self.p1Piece[4]-1
 				p=[Knight(player, i, j)]
 				#id
 				cant = p[aux].id.count("N")
-				print(cant)
 			elif piece.__contains__("l"):
 				self.p1Piece[5]=self.p1Piece[5]-1
 				p=[Lance(player, i, j)]
 				#id
 				cant = p[aux].id.count("L")
-				print(cant)
 			elif piece.__contains__("p"):
 				self.p1Piece[6]=self.p1Piece[6]-1
 				p=[Pawn(player, i, j)]
 				#id
 				cant = p[aux].id.count("P")
-				print(cant)
 			else:
 				self.invalid_piece()
 				self.valid= False	
@@ -977,10 +949,8 @@ class Board(object):
 			if self.valid==True:
 				#cosas comunes
 				p[aux].id=str(cant)+p[aux].id
-				print(p[aux].id)
 				#insertar en la lista
 				self.Recovery_pieces.append(p[aux])
-				print(self.Recovery_pieces)
 				#que no se coma ninguna pieza
 				self.drope(player, i, j, True)
 				#insertarlo
